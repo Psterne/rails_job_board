@@ -1,0 +1,32 @@
+<%= form_for @job do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2>Errors:</h2>
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description, size: '60x6' %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= email_field(:user, :address) %>
+  </div>
+  <div>
+    <%= f.label :name, 'Hiring Manager' %>
+    <%= text_field_tag(:name) %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
