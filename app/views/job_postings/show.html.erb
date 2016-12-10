@@ -1,0 +1,10 @@
+<h1><%= @job_posting.title %></h1>
+
+<p><%= @job_posting.description %></p>
+<p><%= @job_posting.email %></p>
+<p><%= @job_posting.hiring_manager %></p>
+
+<p>Created at: <%= @job_posting.created_at %></p>
+<p>Updated at: <%= @job_posting.updated_at %></p>
+<h5><%= link_to "Edit Posting", edit_job_posting_path(@job_posting)%></h5>
+<h5><%= link_to 'Delete Posting', @job_posting, method: :delete %></h5>

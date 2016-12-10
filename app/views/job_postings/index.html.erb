@@ -1,0 +1,15 @@
+
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+
+<h1>RailsBridgeCorp Open Jobs</h1>
+
+<% @job_postings.each do |job| %>
+  <h3><%= job.title %></h3>
+  <p><%= job.description %></p>
+  <%= link_to("Show full job posting", job_posting_path(job)) %>
+<% end %>
