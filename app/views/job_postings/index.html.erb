@@ -6,10 +6,21 @@
 <% end %>
 
 
-<h1>RailsBridgeCorp Open Jobs</h1>
+<h1>Open Jobs</h1>
 
-<% @job_postings.each do |job| %>
-  <h3><%= job.title %></h3>
-  <p><%= job.description %></p>
-  <%= link_to("Show full job posting", job_posting_path(job)) %>
-<% end %>
+<table class="tableous">
+  <tr>
+    <th><%= sortable "title", "Job Name" %></th>
+    <th><%= sortable "description", "Job Description" %></th>
+    <th><%= sortable "updated_at", "Date Posted" %></th>
+    <th>Full Job Posting</th>
+  </tr>
+  <% @job_postings.each do |job| %>
+    <tr>
+      <td><%= job.title %></td>
+      <td><%= job.description %></td>
+      <td><%= job.updated_at %></td>
+      <td><%= link_to("Show full job posting", job_posting_path(job)) %></td>
+    </tr>
+  <% end %>
+</table>
